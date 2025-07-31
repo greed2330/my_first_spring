@@ -209,11 +209,16 @@ java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver
   	CustomerDTO 복사해서 가져온다.
  	CustomerDAO, CustomerDAOImpl 복사해서 가져온다.
   
-   	Service, ServiceImpl, DAO, DAOImpl => id 중복확인 제외한 나머지 메서드 모두 주석처리,
+  	DAO, DAOImpl => CustomerDTO 스프링 패키지로 수정
+  								id 중복확인 제외한 나머지 메서드 모두 주석처리,
+   	                            에러난 패키지 수정
+   	Service, ServiceImpl, DAO, DAOImpl => 스프링 패키지로 수정
+   										  id 중복확인 제외한 나머지 메서드 모두 주석처리,
    	                                      에러난 패키지 수정
    	
    	
-   ==> 스프링으로 변환	(jsp는 경로만 수정, 백엔드(클래스는 어노테이션 처리, DAO는 마이바티스로 작성후 호출)) 
+   ==> 스프링으로 변환	(jsp는 경로만 수정 => /WEB-INF/views 추가
+    					,백엔드(클래스는 어노테이션 처리, DAO는 마이바티스로 작성후 호출)) 
    @Service
    public class CustomerServiceImpl implements CustomerService{  }
    
@@ -427,7 +432,7 @@ http://localhost/spring_pj_ict05/join.do => ID 중복확인시 OK
 		src/main/resources/ 우클릭 > New > Spring Bean Configuration File > dataSource-config.xml
 		dataSource-config.xml  소스 작성
 		<!-- Mybatis 설정 시작 -->
-		<!-- 컨넥션풀 -->
+		<!-- 커넥션풀 -->
 		<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 			<property name="jndiName" value="java:comp/env/jdbc/jsp_pj_ict05" />
 			<property name="resourceRef" value="true" />
