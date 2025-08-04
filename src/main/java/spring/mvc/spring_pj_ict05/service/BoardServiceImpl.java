@@ -40,6 +40,8 @@ public class BoardServiceImpl implements BoardService{
 		//3단계. 화면에서 입력받은 값을 가져오기.
 		String pageNum = request.getParameter("pageNum");
 		
+		//4단계 싱글톤 방식으로 DAO 객체 생성, 다형성 적용
+		
 		//5-1단계. 전체 게시글 갯수 카운트
 		paging = new Paging(pageNum);
 		int total = dao.boardCnt();

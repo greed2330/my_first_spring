@@ -17,8 +17,8 @@
 				<li>
 					<h4>상품관리</h4>
 					<ul class="product_menu">
-						<li><a href="#">상품목록</a></li>
-						<li><a href="#">상품등록</a></li>
+						<li><a href="${path}/ad_product_list.pd">상품목록</a></li>
+						<li><a href="${path}/ad_product_add.pd">상품등록</a></li>
 						<li><a href="#">카테고리</a></li>
 					</ul>
 				</li>
