@@ -2,6 +2,9 @@ package spring.mvc.spring_pj_ict05.dto;
 
 import java.sql.Date;	//주의
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BoardDTO {
 	private int b_num;
 	private String b_title;

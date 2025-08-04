@@ -3,7 +3,10 @@ package spring.mvc.spring_pj_ict05.dto;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import org.springframework.stereotype.Component;
+
 //DTO(Data Transfer Object) = VO(Value Object)
+@Component
 public class CustomerDTO {
 	private String user_id;
 	private String user_password;

@@ -32,7 +32,7 @@
 				<li><a href="${path}/logout.do">LOGOUT</a></li>
 			</c:if>
 			<li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
-			<li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+			<li><a href="${path}/modifyCustomer.do"><i class="fa-solid fa-user"></i></a></li>
 		</ul>
 		
 		<!-- 반응형 웹 -->

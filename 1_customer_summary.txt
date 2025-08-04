@@ -244,7 +244,7 @@ java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver
   
 resources > js > customer > join.js  => 주의사항 
 아이디 중복확인 : spring_pj_ict05으로 고친후 강력 새로고침 => 500 에러 : 서비스~~ 처리
-let url="/spring_pj_ict05/idConfirmAction.do?userid=" + document.joinform.userid.value;
+let url="/spring_pj_ict05/idConfirmAction.do?user_id=" + document.joinform.userid.value;
 
 Cannot load JDBC driver class 'oracle.jdbc.driver.OracleDriver' => pom.xml에 ojdbc6 추가
 <dependency> 

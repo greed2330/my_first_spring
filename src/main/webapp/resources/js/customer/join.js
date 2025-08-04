@@ -19,7 +19,7 @@ function confirmId(){
 		document.inputform.user_id.focus();
 		return false;
 	}else{//중복확인 버튼 클릭하였을 시 컨트롤러로 url전달, 컨트롤러에 소스 추가
-		let url = "/jsp_pj_ict05/idConfirmAction.do?user_id="+document.inputform.user_id.value;
+		let url = "/spring_pj_ict05/idConfirmAction.do?user_id="+document.inputform.user_id.value;
 		window.open(url, "confirm", "menubar=no, width=500, height=400");
 	}
 }

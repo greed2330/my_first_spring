@@ -2,6 +2,9 @@ package spring.mvc.spring_pj_ict05.dto;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BoardCommentDTO {
 	private int c_comment_num;
 	private int c_board_num;
