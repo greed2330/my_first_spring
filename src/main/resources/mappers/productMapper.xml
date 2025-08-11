@@ -51,7 +51,33 @@
 		  WHERE rn BETWEEN #{start} AND #{end}
 	</select>
 	
-	<!--  -->
+	<!-- 상품 상세페이지 -->
+	<select id="productDetail" parameterType="int" resultType="spring.mvc.spring_pj_ict05.dto.ProductDTO">
+		SELECT * 
+		  FROM mvc_product_tbl
+		 WHERE pdNo = #{pdNo}
+	</select>
+	
+	<!-- 상품정보 수정 -->
+	<update id="productUpdate" parameterType="spring.mvc.spring_pj_ict05.dto.ProductDTO">
+		UPDATE mvc_product_tbl
+		   SET pdName = #{pdName},
+			   pdBrand = #{pdBrand},
+			   pdImg = #{pdImg},
+			   pdCategory = #{pdCategory},
+			   pdContent = #{pdContent},
+			   pdPrice = #{pdPrice},
+			   pdQuantity = #{pdQuantity},
+			   pdStatus = #{pdStatus}
+		 WHERE pdNo = #{pdNo}
+	</update>
+	
+	<!-- 상품삭제 -->
+	<update id="productDelete" parameterType="int" >
+		UPDATE mvc_product_tbl
+		   SET show = 'N'
+		 WHERE pdNo = #{pdNo}
+	</update>
 </mapper>  
 	 
 	 

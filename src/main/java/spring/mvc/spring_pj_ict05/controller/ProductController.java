@@ -57,9 +57,37 @@ public class ProductController {
 		return "admin/product/ad_product_list";
 	}
 	// 상품 상세페이지
-
-	//
+	@RequestMapping("/ad_product_detailAction.pd")
+	public String ad_product_detailAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		logger.info("<<<ProductController => ad_product_detailAction>>>");
+		service.productDetailAction(request, response, model);
+		
+		return "admin/product/ad_product_detailAction";
+	}
 	
-	//ad_product_deleteAction.pd
-
+	//상품수정버튼 클릭 시
+	//${path}/ad_product_updateAction.pd
+	@RequestMapping("/ad_product_updateAction.pd")
+	public String ad_product_updateAction(MultipartHttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		logger.info("<<<ProductController => ad_product_updateAction>>>");
+		
+		service.productUpdateAction(request, response, model);
+		
+		return "admin/product/ad_product_updateAction";
+	}
+	
+	//상품삭제
+	//ad_product_deleteAction
+	@RequestMapping("/ad_product_deleteAction.pd")
+	public String ad_product_deleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		logger.info("<<<ProductController => ad_product_deleteAction>>>");
+		
+		service.productDeleteAction(request, response, model);
+		
+		return "admin/product/ad_product_deleteAction";
+	}
+	
 }

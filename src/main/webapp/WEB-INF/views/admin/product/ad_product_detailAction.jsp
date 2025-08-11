@@ -35,7 +35,7 @@
 			<div id="contents">
 				<!-- 상단 중앙1 시작 -->
 				<div id="section1">
-					<h1 align="center">상품 등록페이지</h1>
+					<h1 align="center">상품 상세페이지</h1>
 				</div>
 				<!-- 상단 중앙1 종료 -->
 
@@ -48,72 +48,92 @@
 					<!-- 우측화면 시작 -->
 					<div id="right">
 						<div class="table_div">
-							<form name="ad_product_add" action="ad_product_addAction.pd"
+						
+							<form name="ad_product_add" action="ad_product_updateAction.pd"
 								method="post" enctype="multipart/form-data">
 								<table>
+									<!-- hidden : 직접 input 박스에서 전달받지 못한 값들을 전달할 때 사용 -->
+									<input type="hidden" name="hiddenPageNum" value="${pageNum}">
+									<input type="hidden" name="hiddenPdNo" value="${dto.pdNo}">
+									<input type="hidden" name="hiddenPdImg" value="${dto.pdImg}">
+									<tr>
+										<th>상품번호</th>
+										<td>
+											${dto.pdNo}
+										</td>
+									</tr>
+									
 									<tr>
 										<th>* 브랜드</th>
 										<td style="text-align: center"><input type="text"
 											class="input" name="pdBrand" id="pdBrand" size="50"
-											placeholder="50자 이내로 작성" required autofocus></td>
+											value="${dto.pdBrand}" placeholder="50자 이내로 작성" required autofocus></td>
 									</tr>
 
 									<tr>
 										<th>* 상품명</th>
-										<td><input type="text" class="input" name="pdName"
-											id="pdName" size="50" placeholder="50자 이내로 작성" required>
+										<td>
+											<input type="text" class="input" name="pdName"
+											id="pdName" size="50" value="${dto.pdName}" placeholder="50자 이내로 작성" required>
 										</td>
 									</tr>
 									<tr>
 										<th>* 상품이미지</th>
-										<td><input type="file" class="input" name="pdImg"
-											id="pdImg" accept="image/*" required></td>
+										<td>
+											<img src="${dto.pdImg}" style="width:100px"><br>
+											<input type="file" class="input" name="pdImg" id="pdImg" accept="image/*">
+										</td>
 									</tr>
 									<tr>
 										<th>* 상품카테고리</th>
-										<td><select class="input" name="pdCategory"
-											id="pdCategory" required>
-												<option value="">상품카테고리</option>
-												<option value="주방가전">주방가전</option>
-												<option value="생활가전">생활가전</option>
-												<option value="휴대폰">휴대폰</option>
-										</select></td>
+										<td>
+											<select class="input" name="pdCategory" id="pdCategory" required>
+													<option value="">상품카테고리</option>
+													<option <c:if test="${dto.pdCategory =='주방가전'}"> selected </c:if> value="주방가전">주방가전</option>
+													<option <c:if test="${dto.pdCategory =='생활가전'}"> selected </c:if> value="생활가전">생활가전</option>
+													<option <c:if test="${dto.pdCategory =='휴대폰'}"> selected </c:if> value="휴대폰">휴대폰</option>
+											</select>
+										</td>
 									</tr>
 
 									<tr>
 										<th>* 상품설명</th>
-										<td><textarea rows="5" cols="77" name="pdContent"
-												id="pdContent" placeholder="상품설명 작성" required></textarea></td>
+										<td>
+												<textarea rows="5" cols="77" name="pdContent"
+												id="pdContent" placeholder="상품설명 작성">${dto.pdContent}</textarea>
+										</td>
 									</tr>
 
 									<tr>
 										<th>* 상품가격</th>
 										<td><input type="number" class="input" name="pdPrice"
-											id="pdPrice" size="10" placeholder="상품가격 작성" required>
+											id="pdPrice" size="10" value="${dto.pdPrice}" placeholder="상품가격 작성" required>
 										</td>
 									</tr>
 
 									<tr>
 										<th>* 상품수량</th>
-										<td><input type="number" class="input" name="pdQuantity"
-											id="pdQuantity" size="10" placeholder="상품 수량" required>
+										<td>
+											<input type="number" class="input" name="pdQuantity"
+											id="pdQuantity" size="10" value="${dto.pdQuantity}" placeholder="상품 수량" required>
 										</td>
 									</tr>
 
 									<tr>
 										<th>* 상품상세코드</th>
-										<td><select class="input" name="pdStatus" id="pdStatus"
-											required>
-												<option value="">상품상태코드</option>
-												<option value="판매중">판매중</option>
-												<option value="입고대기">입고대기</option>
-												<option value="품절">품절</option>
-										</select></td>
+										<td>
+											<select class="input" name="pdStatus" id="pdStatus" required>
+													<option value="">상품상태코드</option>
+													<option <c:if test="${dto.pdStatus =='판매중'}"> selected </c:if> value="판매중">판매중</option>
+													<option <c:if test="${dto.pdStatus =='입고대기'}"> selected </c:if> value="입고대기">입고대기</option>
+													<option <c:if test="${dto.pdStatus =='품절'}"> selected </c:if> value="품절">품절</option>
+											</select>
+										</td>
 									</tr>
 
 									<tr>
 										<td colspan="4" style="text-align: center"><br> <!-- 게시글번호 hidden 추가 : input이 없으므로(게시글 번호는 입력받지 않으므로 input이 없음) -->
-											<input type="submit" class="inputButton" value="상품등록">
+											<input type="submit" class="inputButton" value="상품수정">
 											<input type="button" class="inputButton" value="초기화">
 											<input type="button" class="inputButton" value="상품목록"
 											onclick="window.location='${path}/ad_product_list.pd'">

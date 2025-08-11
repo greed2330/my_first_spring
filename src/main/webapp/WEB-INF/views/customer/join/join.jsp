@@ -16,12 +16,24 @@
 
 <!-- js -->
 <script src="https://kit.fontawesome.com/657537baae.js" crossorigin="anonymous"></script>
+<!-- 우편번호 서비스 -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <!-- (3-3-2). 자바스크립트 소스 연결 -->
 <!-- defer : html을 다 읽은 후에 자바스크립트를 실행한다. 페이지가 모두 로드된 후에 실행된다. -->
 <script src="${path}/resources/js/common/main.js" defer></script>
 
 <script src="${path}/resources/js/customer/join.js" defer></script>
+
+<script>
+	function serchAddress(){
+		new daum.Postcode({
+	        oncomplete: function(data) {
+	        	
+	        }
+	    }).open();
+	};
+</script>
 
 </head>
 <body>
@@ -95,6 +107,7 @@
 										<td>
 											<input type="text" class="input" name="user_address" 
 											size="50" placeholder="주소 작성" required>
+											<input type="button" value="주소찾기" onclick="serchAddress()">
 										</td>
 									</tr>
 									

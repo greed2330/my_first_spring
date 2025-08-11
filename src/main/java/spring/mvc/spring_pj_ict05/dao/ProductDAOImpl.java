@@ -27,7 +27,6 @@ public class ProductDAOImpl implements ProductDAO {
 		ProductDAO dao = sqlSession.getMapper(ProductDAO.class);
 		int insertCnt = dao.productInsert(dto);
 		return insertCnt;
-		
 	}
 
 	// 상품갯수
@@ -53,20 +52,33 @@ public class ProductDAOImpl implements ProductDAO {
 	// 상품상세페이지
 	@Override
 	public ProductDTO productDetail(int pdNo) {
-		return null;
+		System.out.println("ProductDAOImpl - productDetail");
+		
+		//방법1.
+		ProductDTO dto = sqlSession.selectOne("spring.mvc.spring_pj_ict05.dao.ProductDAO.productDetail", pdNo);
+		
+		//방법2.
+		//ProductDAO dao = sqlSession.getMapper(ProductDAO.class);
+		//ProductDTO dto = dao.productDetail(pdNo);
+		return dto;
 	}
 
 	// 상품수정
 	@Override
 	public int productUpdate(ProductDTO dto) {
-		return 0;
+		System.out.println("ProductDAOImpl - productUpdate");
+		
+		int updateCnt = sqlSession.update("spring.mvc.spring_pj_ict05.dao.ProductDAO.productUpdate", dto);
+		return updateCnt;
 	}
 
 	// 상품삭제
 	@Override
 	public int productDelete(int pdNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("ProductDAOImpl - productDelete");
+		
+		int deleteCnt = sqlSession.update("spring.mvc.spring_pj_ict05.dao.ProductDAO.productDelete", pdNo);
+		return deleteCnt;
 	}
 
 }

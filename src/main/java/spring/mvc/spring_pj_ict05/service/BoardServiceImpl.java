@@ -172,8 +172,11 @@ public class BoardServiceImpl implements BoardService{
 		dto.setC_writer(request.getParameter("writer"));
 		dto.setC_content(request.getParameter("content"));
 		
-		//5단계. 댓글 작성처리 후 컨트롤러에서 list로 이동
+		//5단계. 댓글 작성처리 
 		dao.insertComment(dto);
+		//댓글 작성처리 댓글 갯수 업데이트 
+		dao.updateCommentCount();
+		//컨트롤러에서 list로 이동
 	}
 
 	//[댓글 목록]

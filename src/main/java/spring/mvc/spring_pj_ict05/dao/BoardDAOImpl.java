@@ -94,8 +94,13 @@ public class BoardDAOImpl implements BoardDAO{
 	    sqlSession.insert("spring.mvc.spring_pj_ict05.dao.BoardDAO.insertComment", dto);
 	    System.out.println(dto);
 	    
-	    // 2. 게시글의 댓글 수 업데이트
-	    //sqlSession.update("spring.mvc.spring_pj_ict05.dao.BoardDAO.updateCommentCount");
+	    
+	}
+	
+	@Override
+	public void updateCommentCount() {
+		// 2. 게시글의 댓글 수 업데이트
+		sqlSession.update("spring.mvc.spring_pj_ict05.dao.BoardDAO.updateCommentCount");
 	}
 	
 	//댓글 목록

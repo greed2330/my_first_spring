@@ -27,6 +27,6 @@ public interface ProductService {
 			throws ServletException, IOException;
 	
 	//상품삭제
-	public void productDeleteAction(MultipartHttpServletRequest request, HttpServletResponse response, Model model)
+	public void productDeleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 }

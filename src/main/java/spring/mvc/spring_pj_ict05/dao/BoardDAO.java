@@ -35,6 +35,9 @@ public interface BoardDAO {
 	//댓글 작성 처리
 	public void insertComment(BoardCommentDTO dto);
 	
+	//댓글 갯수 업데이트
+	public void updateCommentCount();
+	
 	//댓글 목록
 	public List<BoardCommentDTO> commentList(int board_num);
 

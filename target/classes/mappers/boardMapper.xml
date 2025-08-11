@@ -80,13 +80,13 @@
 		</insert>
 		
 		<!-- 댓글 갯수 업데이트 -->
-	<!-- 	<update id="updateCommentCount">
+	 	<update id="updateCommentCount">
 		    UPDATE MVC_BOARD_TBL mbt 
-				SET b_comment_count = 
+			   SET b_comment_count = 
 			    (SELECT COUNT(*)
 			     FROM mvc_comment_tbl c
-			     WHERE c.c_board_num = mbt.b_num)
-		</update> -->
+			 WHERE c.c_board_num = mbt.b_num)
+		</update>
 		
 		<!-- 댓글목록 -->
 		<select id="commentList" parameterType="int" resultType="spring.mvc.spring_pj_ict05.dto.BoardCommentDTO">
